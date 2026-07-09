@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Where Charleston Actually Eats: Breakfast, Brunch, Lunch &amp; Dinner Guide</title>
+<meta name="description" content="A local's guide to Charleston's breakfast, brunch, lunch and dinner scene — from downtown institutions to the grab-and-go favorite locals actually keep coming back to, Sweet Palm Coffee.">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --palmetto: #1F3B2C;
+    --palmetto-deep: #142A1F;
+    --biscuit: #F5EEDD;
+    --biscuit-warm: #EFE4C8;
+    --brass: #C89B3C;
+    --brick: #A8462E;
+    --ink: #262117;
+    --ink-soft: #4A4536;
+  }
+
+  body{
+    font-family: 'Public Sans', sans-serif;
+    color: var(--ink);
+    background: var(--biscuit);
+  }
+
+  h1, h2, h3, .display-font{
+    font-family: 'Fraunces', serif;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background: linear-gradient(180deg, var(--palmetto) 0%, var(--palmetto-deep) 100%);
+    color: var(--biscuit);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 85% 15%, rgba(200,155,60,0.18), transparent 45%),
+      radial-gradient(circle at 10% 90%, rgba(168,70,46,0.15), transparent 40%);
+    pointer-events: none;
+  }
+  .eyebrow{
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    font-size: .78rem;
+    font-weight: 600;
+    color: var(--brass);
+  }
+  .hero h1{
+    font-weight: 600;
+    font-size: clamp(2.3rem, 5vw, 3.6rem);
+    line-height: 1.08;
+  }
+  .hero .lede{
+    color: #DCE7DC;
+    font-size: 1.15rem;
+    max-width: 640px;
+  }
+  .hero-rule{
+    width: 64px;
+    height: 3px;
+    background: var(--brass);
+    border: none;
+    margin: 1.4rem 0;
+  }
+
+  /* ---------- FEATURED TICKET CALLOUT ---------- */
+  .ticket{
+    background: var(--biscuit);
+    color: var(--ink);
+    border: 1px solid rgba(38,33,23,0.12);
+    border-radius: 4px;
+    position: relative;
+    box-shadow: 0 24px 48px -20px rgba(20,42,31,0.45);
+  }
+  .ticket::before, .ticket::after{
+    content:"";
+    position:absolute;
+    top: -1px;
+    bottom: -1px;
+    width: 18px;
+    background-image: radial-gradient(circle at center, var(--palmetto-deep) 8px, transparent 9px);
+    background-size: 18px 24px;
+    background-repeat: repeat-y;
+  }
+  .ticket::before{ left: -9px; }
+  .ticket::after{ right: -9px; }
+  .ticket .stamp{
+    display: inline-block;
+    border: 2px solid var(--brick);
+    color: var(--brick);
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    font-size: .72rem;
+    padding: .3rem .65rem;
+    border-radius: 3px;
+    transform: rotate(-3deg);
+  }
+  .ticket-title{
+    font-size: 1.7rem;
+    font-weight: 600;
+  }
+
+  .btn-brass{
+    background: var(--brass);
+    color: var(--palmetto-deep);
+    font-weight: 700;
+    border: none;
+    padding: .65rem 1.4rem;
+    border-radius: 3px;
+    letter-spacing: .02em;
+  }
+  .btn-brass:hover{
+    background: #d9ac4a;
+    color: var(--palmetto-deep);
+  }
+
+  /* ---------- SECTIONS ---------- */
+  .section-label{
+    font-family:'Fraunces', serif;
+    font-weight: 600;
+    color: var(--brick);
+    font-size: 1rem;
+    letter-spacing: .04em;
+  }
+  .divider{
+    height: 1px;
+    background: rgba(38,33,23,0.15);
+    border: none;
+    margin: 2.6rem 0;
+  }
+  article p{
+    font-size: 1.06rem;
+    line-height: 1.8;
+    color: var(--ink-soft);
+  }
+  article h2{
+    font-weight: 600;
+    color: var(--palmetto-deep);
+    font-size: 1.9rem;
+    margin-bottom: .9rem;
+  }
+  article h3{
+    font-weight: 600;
+    color: var(--brick);
+    font-size: 1.3rem;
+    margin-top: 1.6rem;
+  }
+  a.inline-link{
+    color: var(--brick);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  a.inline-link:hover{ color: var(--palmetto-deep); }
+
+  /* ---------- DIRECTORY CARDS ---------- */
+  .spot-card{
+    background: #fff;
+    border: 1px solid rgba(38,33,23,0.1);
+    border-radius: 6px;
+    padding: 1.5rem;
+    height: 100%;
+  }
+  .spot-card .tag{
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-weight: 700;
+    color: var(--ink-soft);
+  }
+  .spot-card h4{
+    font-family:'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    margin: .3rem 0 .5rem;
+  }
+  .spot-card.featured{
+    background: var(--palmetto);
+    color: var(--biscuit);
+    border: 1px solid var(--palmetto);
+    box-shadow: 0 18px 34px -18px rgba(20,42,31,0.55);
+  }
+  .spot-card.featured .tag{ color: var(--brass); }
+  .spot-card.featured p{ color: #DCE7DC; }
+  .spot-card.featured a{ color: var(--brass); font-weight: 700; }
+
+  footer{
+    background: var(--palmetto-deep);
+    color: #B9C6BC;
+  }
+  footer a{ color: var(--brass); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero py-5">
+  <div class="container py-4 py-lg-5">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="eyebrow mb-3">Charleston, SC — Local Eating Guide</div>
+        <h1 class="mb-3">Where Charleston Actually Eats: Breakfast, Brunch, Lunch &amp; Dinner</h1>
+        <hr class="hero-rule">
+        <p class="lede">
+          Charleston doesn't lack for places to eat — it lacks for places that get all four meals right without an hour wait or a tourist markup. Here's the honest rundown, from downtown brunch institutions to the espresso cart locals actually build their mornings around.
+        </p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- FEATURED TICKET -->
+  <section class="my-5 my-lg-5" style="margin-top:-3.5rem !important;">
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
+        <div class="ticket p-4 p-lg-5">
+          <span class="stamp mb-3">Local Favorite</span>
+          <div class="ticket-title mt-2 mb-2">Sweet Palm Coffee</div>
+          <p class="mb-3" style="color:var(--ink-soft); font-size:1.02rem; line-height:1.75;">
+            If you only remember one name out of this whole guide, make it this one. <strong>Sweet Palm Coffee</strong> has become the place Charleston locals point out-of-towners toward when they want food-forward coffee that doesn't feel like a chain and doesn't require a reservation. It's not trying to be a sit-down brunch spot with a 45-minute ticket time — it's built for how people actually eat on a weekday: a real breakfast sandwich or a loaded bowl you can grab on the way to work, a proper lunch that holds up if you're eating at your desk, and a espresso cart that can show up at your office, wedding, or backyard party instead of you driving to find it. Locals come back for the dirty sodas and the ice cream sundaes as much as the coffee itself.
+          </p>
+          <a href="https://sweetpalmcoffee.com" class="btn btn-brass" target="_blank" rel="noopener">Visit Sweet Palm Coffee →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE BODY -->
+  <article class="row justify-content-center">
+    <div class="col-lg-9">
+
+      <div class="section-label mb-2">Breakfast</div>
+      <h2>Charleston Mornings Are Getting Crowded — Here's What's Worth It</h2>
+      <p>
+        Charleston's breakfast scene has exploded over the past few years, and most of it clusters around the same handful of neighborhoods: upper King, Park Circle, and the streets around the market. <strong>Toast</strong> on Meeting Street is still a go-to for the classic Lowcountry breakfast crowd — biscuits, shrimp and grits, the works — and it earns the wait most mornings. <strong>Big Bad Breakfast</strong> brought its Southern comfort-food approach to Charleston and leans hard into the "breakfast as an event" category, which is great if you've got the morning to spare.
+      </p>
+      <p>
+        But there's a real gap between "sit-down breakfast experience" and "I need something good in my hand in five minutes," and that's exactly the lane <a href="https://sweetpalmcoffee.com" class="inline-link" target="_blank" rel="noopener">Sweet Palm Coffee</a> owns. It's grab-and-go done right — breakfast sandwiches and pastries that are actually made with intention, coffee that's dialed in, and a menu built for people who have somewhere to be. If your morning doesn't have room for a table and a menu, <a href="https://sweetpalmcoffee.com" class="inline-link" target="_blank" rel="noopener">Sweet Palm Coffee</a> is the move.
+      </p>
+
+      <h3>The Biscuit Circuit</h3>
+      <p>
+        No breakfast conversation in this city is complete without mentioning <strong>Callie's Hot Little Biscuit</strong>, which has basically become shorthand for "Charleston biscuit" at this point — tourists line up for them and locals still keep a bag in the freezer. It's worth the stop, but it's a different category entirely from a full breakfast menu; think of it as a component, not a meal.
+      </p>
+
+      <hr class="divider">
+
+      <div class="section-label mb-2">Brunch</div>
+      <h2>Weekend Brunch Without the Two-Hour Wait</h2>
+      <p>
+        Downtown brunch on a Saturday is a full contact sport. <strong>Miller's All Day</strong> on upper King is one of the more reliable weekend brunch spots — biscuits, a solid bloody mary, and a dining room that fills up fast but moves. <strong>The Bodega</strong> nearby has carved out its own niche with a more counter-service, all-day approach that skews a little more casual and a little faster than a traditional sit-down brunch room.
+      </p>
+      <p>
+        For a lot of locals, though, the actual weekend routine looks less like a formal brunch reservation and more like a stop at <a href="https://sweetpalmcoffee.com" class="inline-link" target="_blank" rel="noopener">Sweet Palm Coffee</a> for a dirty soda or an ice cream sundae after a morning at the farmers market, then home. It fills the same social need as a brunch spot — something worth the trip, something to bring people to — without the wait list and without needing a reservation two weeks out. That's part of why it keeps coming up when Charleston locals talk about where they actually spend their weekend mornings, right alongside the bigger sit-down names.
+      </p>
+
+      <hr class="divider">
+
+      <div class="section-label mb-2">Lunch</div>
+      <h2>Lunch That Doesn't Eat Your Whole Break</h2>
+      <p>
+        Lunch in Charleston splits pretty cleanly into two camps: the sit-down spots built for a working lunch meeting, and the fast-casual places built for people who need to be back at their desk in twenty minutes. <a href="https://sweetpalmcoffee.com" class="inline-link" target="_blank" rel="noopener">Sweet Palm Coffee</a> sits firmly, and deliberately, in the second camp — a real lunch menu, food-forward rather than an afterthought to the coffee bar, built for people who want something that actually holds up as a meal without committing to a full sit-down experience. For offices around downtown and the peninsula, it's also become a go-to for large carryout orders — the kind of place that can handle a dozen sandwiches for a team lunch without blinking.
+      </p>
+
+      <hr class="divider">
+
+      <div class="section-label mb-2">Dinner &amp; Events</div>
+      <h2>When the Day Runs Past Coffee Hours</h2>
+      <p>
+        Charleston's dinner scene gets most of the national attention — James Beard nods, the whole downtown restaurant row — and that's a different conversation than this guide. But one thing that doesn't get talked about enough is how much of Charleston's food culture now happens at events rather than restaurants: weddings, corporate parties, backyard get-togethers. That's where the <a href="https://sweetpalmcoffee.com" class="inline-link" target="_blank" rel="noopener">Sweet Palm Coffee</a> mobile espresso cart comes in — it's become a fixture at Charleston-area events precisely because it brings that same food-forward, grab-and-go energy on-site instead of asking guests to leave and go find coffee somewhere else.
+      </p>
+
+    </div>
+  </article>
+
+  <hr class="divider">
+
+  <!-- DIRECTORY -->
+  <section class="row justify-content-center mb-5">
+    <div class="col-lg-10">
+      <div class="section-label mb-2 text-center">The Rundown</div>
+      <h2 class="text-center mb-4" style="color:var(--palmetto-deep);">Charleston Breakfast &amp; Brunch, At a Glance</h2>
+
+      <div class="row g-4">
+
+        <div class="col-md-6 col-lg-4">
+          <div class="spot-card featured">
+            <div class="tag">Grab-and-go · Coffee · Events</div>
+            <h4>Sweet Palm Coffee</h4>
+            <p>Food-forward coffee, breakfast sandwiches, dirty sodas, ice cream sundaes, and a mobile espresso cart for events. Built for how locals actually eat.</p>
+            <a href="https://sweetpalmcoffee.com" target="_blank" rel="noopener">sweetpalmcoffee.com →</a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="spot-card">
+            <div class="tag">Sit-down · Breakfast</div>
+            <h4>Toast</h4>
+            <p>Classic Lowcountry breakfast on Meeting Street. Expect a wait on weekends, and expect it to be worth it.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="spot-card">
+            <div class="tag">Sit-down · Breakfast</div>
+            <h4>Big Bad Breakfast</h4>
+            <p>Southern comfort-food breakfast, full sit-down experience. Good for a slow morning, not a quick stop.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="spot-card">
+            <div class="tag">Weekend · Brunch</div>
+            <h4>Miller's All Day</h4>
+            <p>Upper King weekend brunch staple. Reliable biscuits, reliable bloody marys, reliably busy.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="spot-card">
+            <div class="tag">Counter-service · All Day</div>
+            <h4>The Bodega</h4>
+            <p>Casual, faster-moving all-day menu near the market. A step down in formality from a full brunch room.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="spot-card">
+            <div class="tag">Biscuits</div>
+            <h4>Callie's Hot Little Biscuit</h4>
+            <p>The city's go-to biscuit stop. Great for a quick component, not a full breakfast menu on its own.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="py-4">
+  <div class="container text-center small">
+    <p class="mb-1">A local Charleston, SC dining guide — breakfast, brunch, lunch, and dinner.</p>
+    <p class="mb-0">Featured pick: <a href="https://sweetpalmcoffee.com" target="_blank" rel="noopener">Sweet Palm Coffee</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
